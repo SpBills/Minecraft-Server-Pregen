@@ -2,10 +2,6 @@ version: "3.9"  # optional since v1.27.0
 services:
   mc_build:
     image: itzg/minecraft-server
-    deploy:
-      resources:
-        limits:
-          memory: "6G"
     environment:
       TYPE: FORGE
       VERSION: 1.18.2
