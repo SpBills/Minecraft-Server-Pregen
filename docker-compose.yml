@@ -1,0 +1,20 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  mc_build:
+    image: itzg/minecraft-server
+    deploy:
+      resources:
+        limits:
+          memory: "6G"
+    environment:
+      TYPE: FORGE
+      VERSION: 1.18.2
+      EULA: TRUE
+      JVM_XX_OPTS: "-XX:MaxRAMPercentage=90"
+      RCON_CMDS_STARTUP: |-
+          /pregen start 0 0 200 overworld
+    ports: 
+      - 25589:25565
+    volumes: 
+      - ./mods:/mods
+      - ./world:/data/world
